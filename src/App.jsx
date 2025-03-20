@@ -1,13 +1,11 @@
 import React, { Suspense, lazy } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import AadharVerify from './public/pages/AadharVerify';
 import Wallet from './public/pages/Wallet';
-import ProtectedRoute from './public/pages/ProtectedRoute';
+// import ProtectedRoute from './public/pages/ProtectedRoute';
 import ForgotPassword from './public/pages/ForgotPassword';
 import { Toaster } from 'react-hot-toast';
 import About from './public/pages/About';
-
-
 
 // Lazy-loaded components
 const PublicLayout = lazy(() => import('./public/PublicLayout'));
@@ -20,10 +18,8 @@ const Register = lazy(() => import('./public/pages/Register'));
 const DashboardFirst = lazy(() => import('./public/pages/DashboardFirst'));
 
 const App = () => {
-  // const isAuthenticated = true;
-
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Toaster position="top-right" />
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
@@ -32,10 +28,11 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/forgotPass" element={<ForgotPassword />} />
+            <Route path="/about" element={<About />} />
             <Route
               path="/dashboard/*"
               element={
-                <ProtectedRoute>
+                // <ProtectedRoute>
                   <Routes>
                     <Route index element={<DashboardHome />} />
                     <Route path="profile" element={<Profile />} />
@@ -43,15 +40,15 @@ const App = () => {
                     <Route path="DashboardFirst" element={<DashboardFirst />} />
                     <Route path="AadharVerify" element={<AadharVerify />} />
                     <Route path="wallet" element={<Wallet />} />
-                    <Route path="about" element={<About />} />
                   </Routes>
-                </ProtectedRoute>
+                // </ProtectedRoute>
               }
             />
           </Route>
         </Routes>
       </Suspense>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
+
 export default App;
