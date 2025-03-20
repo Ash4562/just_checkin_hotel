@@ -60,7 +60,7 @@ const Navbar = () => {
             <Link className="text-black font-bold hover:text-black" to="/dashboard/userdetails">
               Manage Users
             </Link>
-            <Link className="text-black font-bold hover:text-black" to="/dashboard/about">
+            <Link className="text-black font-bold hover:text-black" to="/about">
              About
             </Link>
 
@@ -124,7 +124,7 @@ const Navbar = () => {
           >
             MANAGE USERS
           </Link>
-            <Link className="text-black font-bold hover:text-black" to="/dashboard/about">
+            <Link className="text-black font-bold hover:text-black" to="/about">
              About
             </Link>
           {isAuthenticated ? (
