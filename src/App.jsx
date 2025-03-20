@@ -32,6 +32,7 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/forgotPass" element={<ForgotPassword />} />
+            <Route path="about" element={<About />} />
             <Route
               path="/dashboard/*"
               element={
@@ -43,7 +44,6 @@ const App = () => {
                     <Route path="DashboardFirst" element={<DashboardFirst />} />
                     <Route path="AadharVerify" element={<AadharVerify />} />
                     <Route path="wallet" element={<Wallet />} />
-                    <Route path="about" element={<About />} />
                   </Routes>
                 </ProtectedRoute>
               }
