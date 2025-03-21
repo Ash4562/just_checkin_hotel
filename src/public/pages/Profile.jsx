@@ -67,11 +67,11 @@ const Profile = () => {
           <div className="w-16 h-16 md:w-20 md:h-20 bg-gray-300 rounded-full flex items-center justify-center">
             <i className="fas fa-user text-gray-500 text-2xl md:text-3xl"></i>
           </div>
-          <div>
+          <div className="">
             <h1 className="text-xl md:text-2xl font-semibold">
               {data?.hotelName || "Hotel Name"}
             </h1>
-            <p className="text-gray-500">{data?.hotelAddress || "Location"}</p>
+            <p className="text-gray-500 w-52 ">{data?.hotelAddress || "Location"}</p>
           </div>
         </div>
 

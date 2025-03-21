@@ -2,7 +2,7 @@ import React, { Suspense, lazy } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import AadharVerify from './public/pages/AadharVerify';
 import Wallet from './public/pages/Wallet';
-// import ProtectedRoute from './public/pages/ProtectedRoute';
+import ProtectedRoute from './public/pages/ProtectedRoute';
 import ForgotPassword from './public/pages/ForgotPassword';
 import { Toaster } from 'react-hot-toast';
 import About from './public/pages/About';
@@ -32,7 +32,7 @@ const App = () => {
             <Route
               path="/dashboard/*"
               element={
-                // <ProtectedRoute>
+                <ProtectedRoute>
                   <Routes>
                     <Route index element={<DashboardHome />} />
                     <Route path="profile" element={<Profile />} />
@@ -41,7 +41,7 @@ const App = () => {
                     <Route path="AadharVerify" element={<AadharVerify />} />
                     <Route path="wallet" element={<Wallet />} />
                   </Routes>
-                // </ProtectedRoute>
+                 </ProtectedRoute>
               }
             />
           </Route>

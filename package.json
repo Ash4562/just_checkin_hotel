@@ -13,6 +13,7 @@
     "@babel/preset-react": "^7.26.3",
     "@reduxjs/toolkit": "^2.5.0",
     "axios": "^1.7.9",
+    "date-fns": "^4.1.0",
     "font-awesome": "^4.7.0",
     "formik": "^2.4.6",
     "js-cookie": "^3.0.5",
