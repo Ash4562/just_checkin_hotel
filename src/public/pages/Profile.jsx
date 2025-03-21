@@ -63,15 +63,15 @@ const Profile = () => {
       {/* Right Profile Section */}
       <div className="flex-1 bg-white flex flex-col items-center justify-center p-6 overflow-auto">
         {/* Profile Picture */}
-        <div className="flex gap-4 lg:-ml-16 items-center mb-6">
+        <div className="flex gap-4 lg:-ml-16 items-center mb-6 p-4">
           <div className="w-16 h-16 md:w-20 md:h-20 bg-gray-300 rounded-full flex items-center justify-center">
             <i className="fas fa-user text-gray-500 text-2xl md:text-3xl"></i>
           </div>
           <div className="">
-            <h1 className="text-xl md:text-2xl font-semibold">
+            <h1 className="text-xl md:text-2xl font-semibold w-80">
               {data?.hotelName || "Hotel Name"}
             </h1>
-            <p className="text-gray-500 w-52 ">{data?.hotelAddress || "Location"}</p>
+            <p className="text-gray-500 w-80 ">{data?.hotelAddress || "Location"}</p>
           </div>
         </div>
 
