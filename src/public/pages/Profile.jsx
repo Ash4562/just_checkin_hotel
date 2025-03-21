@@ -60,10 +60,10 @@ const Profile = () => {
             <i className="fas fa-user text-gray-500 text-2xl md:text-3xl"></i>
           </div>
           <div>
-            <h1 className="text-xl md:text-2xl font-semibold">
+            <h1 className="text-xl md:text-2xl font-semibold w-80">
               {data?.hotelName || "Hotel Name"}
             </h1>
-            <p className="text-gray-500">{data?.hotelAddress || "Location"}</p>
+            <p className="text-gray-500 w-80">{data?.hotelAddress || "Location"}</p>
           </div>
         </div>
 
