@@ -48,6 +48,13 @@ export const AuthAPI = createApi({
         body: resetData,
       }),
     }),
+    ResendOtp: builder.mutation({
+      query: (resendData) => ({
+        url: "/resend",
+        method: "POST",
+        body: resendData,
+      }),
+    }),
 
     Login: builder.mutation({
       query: (loginData) => ({
@@ -57,7 +64,7 @@ export const AuthAPI = createApi({
           "Content-Type": "application/json",
         },
         body: loginData,
-      }),
+      })
     }),
 
     LogoutHotel: builder.mutation({
@@ -87,6 +94,7 @@ export const {
   useVerifyOTPMutation,
   useForgotPasswordMutation,
   useResetPasswordMutation,
+  useResendOtpMutation,
   useLoginMutation,
   useLogoutHotelMutation,
   useAddVerifiedDataMutation

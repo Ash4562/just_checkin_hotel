@@ -2,7 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import img from "/login.jpg";
-import { toast } from "react-toastify"; // Import toast
+import toast from "react-hot-toast"
 import { Link, useNavigate } from "react-router-dom";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { useLoginMutation } from "../../redux/api/AuthAPI";
@@ -40,7 +40,7 @@ const Login = () => {
                         draggable: true,
                         theme: "colored",
                     });
-                    
+
 
                     navigate("/dashboard/profile");
                 } else {
@@ -50,15 +50,16 @@ const Login = () => {
                 console.error("Login Failed:", err);
 
                 toast.error("❌ Login failed, please try again!", {
-                    position: "top-right",
-                    autoClose: 3000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    theme: "colored",
+                    // style: {
+                    //     backgroundColor: '#ff0000', // Red background
+                    //     color: 'white',             // White text
+                    //     fontWeight: 'bold',
+                    //     borderRadius: '10px',
+                    //     padding: '10px',
+                    // },
+
                 });
-                
+
             }
         },
     });
@@ -138,11 +139,10 @@ const Login = () => {
                         <div className="flex justify-center items-center mt-4">
                             <button
                                 type="submit"
-                                className={`w-36 text-center bg-gradient-to-r from-green-500 to-[#0060EC] text-white p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                                    formik.isSubmitting || isLoading
-                                        ? "opacity-50 cursor-not-allowed"
-                                        : ""
-                                }`}
+                                className={`w-36 text-center bg-gradient-to-r from-green-500 to-[#0060EC] text-white p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 ${formik.isSubmitting || isLoading
+                                    ? "opacity-50 cursor-not-allowed"
+                                    : ""
+                                    }`}
                                 disabled={!formik.isValid || formik.isSubmitting || isLoading}
                             >
                                 {isLoading ? "Logging in..." : "Login"}

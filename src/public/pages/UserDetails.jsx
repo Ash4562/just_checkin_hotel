@@ -60,7 +60,7 @@ function UserDetails() {
             </div>
 
             {/* User Cards Grid */}
-            <div className="p-6 max-h-[74vh] overflow-y-auto">
+            <div className="p-6">
                 {filteredCustomers.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         {filteredCustomers.map((user) => (

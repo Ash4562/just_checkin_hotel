@@ -16,14 +16,14 @@ const PublicLayout = () => {
             <div className="flex flex-1">
                 {/* Sidebar for Dashboard (display as navbar on small screens) */}
                 {isDashboard && (
-                    <div className="flex   sm:flex-row flex-col z-40">
+                    <div className="flex sm:flex-row flex-col z-40">
                         {/* Sidebar for larger screens */}
                         <Sidebar />
                     </div>
                 )}
 
                 {/* Main Content */}
-                <main className="flex-1 p-4 sm:ml-0 ">
+                <main className="flex-1 p-4 mt-36 sm:ml-0 sm:mt-0">
                     <Outlet />
                 </main>
             </div>

@@ -3,7 +3,7 @@ import userprofile from "/userprofile.jpg";
 import { useGetSingleHotelQuery } from "../../redux/api/hotelProfileApi";
 import { useNavigate } from "react-router-dom";
 import { useLogoutHotelMutation } from "../../redux/api/AuthAPI";
-import { toast, ToastContainer } from "react-toastify"; // Import toast and ToastContainer
+import toast from "react-hot-toast"
 import "react-toastify/dist/ReactToastify.css"; // Import toast CSS
 
 const Profile = () => {
@@ -25,17 +25,9 @@ const Profile = () => {
   const handleLogout = () => {
     LogoutHotel();
     localStorage.removeItem("token");
-    
+
     // Show success toast on logout
-    toast.error("🎉 Logout Successful!", {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      theme: "colored",
-    });
+    toast.error("Logout Successful!",);
 
     navigate("/login");
   };
@@ -50,7 +42,7 @@ const Profile = () => {
 
 
   return (
-    <div className="flex flex-col md:flex-row mt-36 sm:mt-0">
+    <div className="flex flex-col md:flex-row sm:mt-0">
       {/* Left Image Section */}
       <div className="flex-1 -mb-6">
         <img
@@ -63,15 +55,15 @@ const Profile = () => {
       {/* Right Profile Section */}
       <div className="flex-1 bg-white flex flex-col items-center justify-center p-6 overflow-auto">
         {/* Profile Picture */}
-        <div className="flex gap-4 lg:-ml-16 items-center mb-6 p-4">
+        <div className="flex gap-4 lg:-ml-16 items-center mb-6">
           <div className="w-16 h-16 md:w-20 md:h-20 bg-gray-300 rounded-full flex items-center justify-center">
             <i className="fas fa-user text-gray-500 text-2xl md:text-3xl"></i>
           </div>
-          <div className="">
-            <h1 className="text-xl md:text-2xl font-semibold w-80">
+          <div>
+            <h1 className="text-xl md:text-2xl font-semibold">
               {data?.hotelName || "Hotel Name"}
             </h1>
-            <p className="text-gray-500 w-80 ">{data?.hotelAddress || "Location"}</p>
+            <p className="text-gray-500">{data?.hotelAddress || "Location"}</p>
           </div>
         </div>
 
@@ -94,7 +86,7 @@ const Profile = () => {
             />
           </div>
 
-      
+
 
           <div className="mb-4">
             <input

@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import backgroundImage from "/HomePage.jpeg";
 import './Home.css';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import toast from "react-hot-toast"
 
 const Home = () => {
     const [numberOfPeople, setNumberOfPeople] = useState(''); // Number of people input state
@@ -12,7 +11,7 @@ const Home = () => {
     const [verificationMessage, setVerificationMessage] = useState('');
     const [loading, setLoading] = useState(false); // State for spinner
     const [isLoggedIn, setIsLoggedIn] = useState(true); // Add state for login status
-
+    const navigate = useNavigate();
     // Handle input for number of people
     const handleInputChange = (e) => {
         if (!isLoggedIn) {
@@ -31,12 +30,18 @@ const Home = () => {
             setTimeout(() => {
                 setLoading(false);
                 setVerificationMessage('Verified');
-                setIsVerified(true);
+                setIsVerified(true)
+                // navigate('/dashboard/AadharVerify', { state: { numberOfPeople: parseInt(numberOfPeople, 10) } });
             }, 2000); // Simulate a delay for verification
         }
     };
 
-    // Simulate login for now (You can modify this for actual authentication)
+    const handleContinue = () => {
+        navigate('/dashboard/AadharVerify', { state: { numberOfPeople: parseInt(numberOfPeople, 10) } });
+    };
+
+
+
     const handleLogin = () => {
         setIsLoggedIn(true); // Set to true to simulate login
     };
@@ -52,22 +57,22 @@ const Home = () => {
                 <div className="absolute top-0 px-7 left-0 w-full h-[70vh] flex flex-col items-center justify-center">
                     <div className="bg-white rounded-full shadow-xl shadow-blue-700 text-center max-w-3xl w-full p-2">
                         <div className="flex items-center gap-4">
-                        <input
-  type="text"
-  placeholder="Enter Number Of People"
-  className="flex-1 ml-6 rounded-full border-gray-300 outline-none"
-  value={numberOfPeople}
-  onChange={handleInputChange}
-  disabled={!isLoggedIn} // Disable input if not logged in
-/>
+                            <input
+                                type="text"
+                                placeholder="Enter Number Of People"
+                                className="flex-1 ml-6 rounded-full border-gray-300 outline-none"
+                                value={numberOfPeople}
+                                onChange={handleInputChange}
+                                disabled={!isLoggedIn} // Disable input if not logged in
+                            />
 
-<button
-  className={`w-16 h-16 flex items-center justify-center rounded-full ${isValid && isLoggedIn ? 'hover:bg-[#85D200] bg-[#85D200] text-white' : 'bg-gray-300 cursor-not-allowed'} transition duration-300`}
-  onClick={handleVerify}
-  disabled={!isValid || !isLoggedIn} // Disable button if not logged in
->
-  <i className="fas fa-arrow-right text-white text-2xl"></i>
-</button>
+                            <button
+                                className={`w-16 h-16 flex items-center justify-center rounded-full ${isValid && isLoggedIn ? 'hover:bg-[#85D200] bg-[#85D200] text-white' : 'bg-gray-300 cursor-not-allowed'} transition duration-300`}
+                                onClick={handleVerify}
+                                disabled={!isValid || !isLoggedIn} // Disable button if not logged in
+                            >
+                                <i className="fas fa-arrow-right text-white text-2xl"></i>
+                            </button>
 
                         </div>
                     </div>
@@ -96,12 +101,12 @@ const Home = () => {
 
                     {/* Continue Button after Verification */}
                     {isVerified && !loading && (
-                        <Link
-                            to="/dashboard/DashboardFirst"
+                        <button
+                            onClick={handleContinue}
                             className="px-8 py-2 mt-10 rounded-full hover:bg-[#85D200] bg-blue-600 text-white hover:text-white transition duration-300"
                         >
                             Continue
-                        </Link>
+                        </button>
                     )}
                 </div>
 
@@ -166,7 +171,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <ToastContainer />
+            {/* <ToastContainer /> */}
         </>
     );
 };

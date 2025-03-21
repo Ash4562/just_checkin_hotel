@@ -1,9 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { AuthAPI } from "./api/AuthAPI";
 
-const authSlice= createSlice({
+const authSlice = createSlice({
     name: "authSlice",
-    initialState: {},
+    initialState: {
+        user: localStorage.getItem()
+    },
     reducers: {
         invalidate: (state, { payload }) => {
             payload.forEach(item => {
@@ -15,8 +17,8 @@ const authSlice= createSlice({
         .addMatcher(AuthAPI.endpoints.Login.matchFulfilled, (state, { payload }) => {
             state.hotel = payload
         })
-       
-       
+
+
 })
 
 export const { invalidate } = authSlice.actions
